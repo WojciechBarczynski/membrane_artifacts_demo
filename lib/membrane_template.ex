@@ -28,10 +28,7 @@ defmodule Membrane.ArtifactsDemo do
       |> child(:upd_sink, %UDP.Sink{
         destination_port_no: @port,
         destination_address: @local_address
-      })
-    ]
-
-    spec2 = [
+      }),
       child(:upd_source, %UDP.Source{
         local_port_no: @port,
         local_address: @local_address
@@ -40,7 +37,7 @@ defmodule Membrane.ArtifactsDemo do
       |> child(:rtp_depayloader, RTP.SessionBin)
     ]
 
-    {[spec: spec, spec: spec2], %{}}
+    {[spec: spec], %{}}
   end
 
   @impl true
